@@ -1,0 +1,11 @@
+{
+  "name": "toornament",
+  "main": "server.js",
+  "dependencies": {
+    "axios": "^0.15.2",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "jsonp": "^0.2.0",
+    "ramda": "^0.22.1"
+  }
+}
