@@ -7,7 +7,12 @@
   <meta name="author" content="Joona Paavola">
 
   <link rel="stylesheet" href="css/mystyle.css?v=1.0">
+  <script src="js/jquery.js"></script>
+  <script src="js/brackets.min.js"></script>
   <script src="js/axios.min.js"></script>
+  <script>
+      var rounds = "";
+  </script>
   <script src="js/myScript.js"></script>
   <!--[if lt IE 9]>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
@@ -17,5 +22,45 @@
 <body>
     <h1>Toornament kaavio</h1>
     <div id="container"></div>
+
+    <div id="brackets"></div>
+
+    <script type="text/javascript">
+
+        /*var rounds = [
+            [
+                {
+                    player1: { name: "Player 111", winner: true, ID: 111 },
+                    player2: { name: "Player 211", ID: 211 }
+                },
+                {
+                    player1: { name: "Player 112", winner: true, ID: 112 },
+                    player2: { name: "Player 212", ID: 212 }
+                }
+            ],
+            [
+                {
+                    player1: { name: "Player 111", winner: true, ID: 111 },
+                    player2: { name: "Player 212", ID: 211 }
+                }
+            ]
+        ];*/
+
+        var titles = ['Round 1'];
+
+
+        $("#brackets").brackets({
+            titles: titles,
+            rounds: this.rounds,
+            color_title: '#ffffff',
+            border_color: '#ffffff',
+            color_player: '#ffffff',
+            bg_player: 'gray',
+            color_player_hover: 'white',
+            bg_player_hover: 'blue',
+            border_radius_player: '2px',
+            border_radius_lines: '2px',
+        });
+    </script>
 </body>
 </html>

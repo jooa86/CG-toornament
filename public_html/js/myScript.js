@@ -30,14 +30,42 @@ const handle_opponent = (opponent) => {
 
 const handle_match = (match) => {
 	const r = match.opponents.map(handle_opponent);
-	return {match: `match ${match.number} round ${match.round_number} group ${match.group_number}`, "teams": r}
+	return {
+		match: "match: " + match.number + ", round: " + match.round_number + ", group: " + match.group_number,
+		teams: r
+	}
 }
 
+/*
+var rounds = [
+	[
+		{
+			player1: { name: "Player 111", winner: true, ID: 111 },
+			player2: { name: "Player 211", ID: 211 }
+		},
+		{
+			player1: { name: "Player 112", winner: true, ID: 112 },
+			player2: { name: "Player 212", ID: 212 }
+		}
+	],
+	[
+		{
+			player1: { name: "Player 111", winner: true, ID: 111 },
+			player2: { name: "Player 212", ID: 211 }
+		}
+	]
+];
+*/
 
 axios.get('https://api.toornament.com/v1/tournaments/57fd38b5150ba019198b456e/matches?has_result=1&api_key=' + myKey)
 .then(res => res.data)
 .then(data => data.map(handle_match))
 .then(function(matches){
+	const r = matches.map(handle_opponent);
+	rounds = {
+			player1: { name: "kku", winner: true, ID: 111},
+			player2: { name: "ppp", winner: false, ID: 222}
+	}
     document.getElementById('container').innerHTML = matches.map(function(response){
             return(
               '<div class="match-box">' + response.match +
