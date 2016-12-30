@@ -1,4 +1,4 @@
-const myKey = "TMAeQSNQWnb-1aQhZqQebnqcVqBd3j9Djrz7mQ0qGkI"
+const myKey = "TMAeQSNQWnb-1aQhZqQebnqcVqBd3j9Djrz7mQ0qGkI";
 
 const handle_result = (result) => {
 	const outcomes = {
@@ -6,26 +6,26 @@ const handle_result = (result) => {
 		2: "draw",
 		3: "loss"
 	};
-	return outcomes[result]
-}
+	return outcomes[result];
+};
 
 const handle_team = (result) => {
-  if(result != null){
+  if(result !== null){
       return result;
   }else{
     return {
         name: "N/A",
     };
   }
-}
+};
 
 const handle_opponent = (opponent) => {
 		return {
 				team: handle_team(opponent.participant),
 				score: opponent.score,
 				result: handle_result(opponent.result)
-		}
-}
+		};
+};
 
 
 const handle_match = (match) => {
@@ -33,10 +33,10 @@ const handle_match = (match) => {
 	return {
 		match: "match: " + match.number + ", round: " + match.round_number + ", group: " + match.group_number,
 		teams: r
-	}
-}
+	};
+};
 
-/*
+
 var rounds = [
 	[
 		{
@@ -55,7 +55,7 @@ var rounds = [
 		}
 	]
 ];
-*/
+
 
 axios.get('https://api.toornament.com/v1/tournaments/57fd38b5150ba019198b456e/matches?has_result=1&api_key=' + myKey)
 .then(res => res.data)
@@ -65,7 +65,7 @@ axios.get('https://api.toornament.com/v1/tournaments/57fd38b5150ba019198b456e/ma
 	rounds = {
 			player1: { name: "kku", winner: true, ID: 111},
 			player2: { name: "ppp", winner: false, ID: 222}
-	}
+	};
     document.getElementById('container').innerHTML = matches.map(function(response){
             return(
               '<div class="match-box">' + response.match +
@@ -76,4 +76,4 @@ axios.get('https://api.toornament.com/v1/tournaments/57fd38b5150ba019198b456e/ma
             );
     }).join('');
 })
-.catch(e => console.error(e))
+.catch(e => console.error(e));
