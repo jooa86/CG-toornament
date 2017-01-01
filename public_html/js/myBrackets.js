@@ -72,7 +72,7 @@ const handle_match = (match) => {
 };
 
 
-axios.get('https://api.toornament.com/v1/tournaments/57fd3729140ba0740d8b4568/matches?stage_number=2&has_result=1&api_key=' + myKey)
+axios.get('https://api.toornament.com/v1/tournaments/57fd38b5150ba019198b456e/matches?has_result=1&api_key=' + myKey)
 .then(res => res.data)
 .then(data => data.map(handle_match))
 .then(function(result){
